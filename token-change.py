@@ -29,8 +29,9 @@ Settings.embed_model = DashScopeEmbedding(
 documents = SimpleDirectoryReader("data").load_data()
 
 sentence_splitter = SentenceSplitter(
-    chunk_size=256,
-    chunk_overlap=50
+    chunk_size=512,
+    chunk_overlap=50,
+    separator="。！？；\n"
 )
 nodes = sentence_splitter.get_nodes_from_documents(documents)
 for node in nodes:
